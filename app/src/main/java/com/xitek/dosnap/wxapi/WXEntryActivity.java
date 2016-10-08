@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
+import com.xitek.dosnap.DosnapApp;
 import com.xitek.dosnap.LogUtils;
 
 /**
@@ -15,6 +16,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DosnapApp.mWeixinAPI.handleIntent(getIntent(),this);
         LogUtils.e("WXEntryActivity oncreate");
     }
 
@@ -35,5 +37,6 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
                 LogUtils.e("取消登录");
                 break;
         }
+        this.finish();
     }
 }
