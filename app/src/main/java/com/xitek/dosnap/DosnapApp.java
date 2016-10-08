@@ -14,6 +14,7 @@ import android.preference.PreferenceManager;
 
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.xitek.dosnap.util.LogUtils;
 
 import java.util.Map;
 import java.util.concurrent.ExecutorService;

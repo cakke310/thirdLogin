@@ -5,9 +5,14 @@ import android.os.Bundle;
 
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
+import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.xitek.dosnap.DosnapApp;
-import com.xitek.dosnap.LogUtils;
+import com.xitek.dosnap.util.DataManager;
+import com.xitek.dosnap.util.Event;
+import com.xitek.dosnap.util.LogUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by Administrator on 2016/10/8.
@@ -30,6 +35,8 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
         switch (baseResp.errCode){
             case BaseResp.ErrCode.ERR_OK:
                 LogUtils.e("登入成功");
+                String code = ((SendAuth.Resp) baseResp).code;
+                DataManager.getInstance().weChatEvent(code);
                 break;
             case BaseResp.ErrCode.ERR_AUTH_DENIED:
                 break;

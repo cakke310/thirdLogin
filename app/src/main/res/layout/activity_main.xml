@@ -7,8 +7,15 @@
     tools:context="com.xitek.dosnap.MainActivity">
 
     <Button
-        android:onClick="weChatLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="weChatLogin"
         android:text="wechat login" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp" />
 </LinearLayout>

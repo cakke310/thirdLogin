@@ -1,4 +1,4 @@
-package com.xitek.dosnap;
+package com.xitek.dosnap.util;
 
 import android.text.TextUtils;
 import android.util.Log;
