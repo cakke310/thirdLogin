@@ -47,6 +47,6 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
                 LogUtils.e("取消登录");
                 break;
         }
-        this.finish();
+//        this.finish();
     }
 }

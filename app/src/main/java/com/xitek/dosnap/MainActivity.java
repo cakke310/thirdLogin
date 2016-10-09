@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
@@ -67,23 +68,22 @@ public class MainActivity extends Activity {
     }
 
     public void share(View v){
-        WXWebpageObject webpageObject = new WXWebpageObject();
-        webpageObject.webpageUrl = "http://www.dosnap.com/";
-        WXMediaMessage mediaMessage = new WXMediaMessage();
-        mediaMessage.title = "Dosnap - 中文图片社交第一平台,不只是手机摄影";
-        mediaMessage.description = "摄影，手机就够了";
-        Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.drawable.icon_rect);
-        mediaMessage.setThumbImage(thumb);
-        SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = String.valueOf(System.currentTimeMillis());
-        req.message = mediaMessage;
-        req.scene = SendMessageToWX.Req.WXSceneSession;
-        LogUtils.e(req+"");
+        LogUtils.e("share");
+//        WXWebpageObject webpage = new WXWebpageObject();
+//        webpage.webpageUrl = "http://www.dosnap.com/";
+//        WXMediaMessage msg = new WXMediaMessage(webpage);
+//        msg.title = "Dosnap - 中文图片社交第一平台,不只是手机摄影";
+//        msg.description = "摄影，手机就够了";
+//        Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.drawable.icon_rect);
+//        msg.setThumbImage(thumb);
+//        SendMessageToWX.Req req = new SendMessageToWX.Req();
+//        req.transaction = String.valueOf(System.currentTimeMillis());
+//        req.message = msg;
+//        req.scene = SendMessageToWX.Req.WXSceneSession;
 //        DosnapApp.mWeixinAPI.sendReq(req);
-        if(!thumb.isRecycled()){
-            thumb.recycle();
-        }
-
+//        if(!thumb.isRecycled()){
+//            thumb.recycle();
+//        }
     }
 
     @Override
@@ -142,6 +142,7 @@ public class MainActivity extends Activity {
         if(event.getType() == DataManager.WECCHAT_LOG){
 //            tv.setText("微信登录成功");
             HttpUtils.getWeChatToken((String) event.getData());
+
         }
 
     }
