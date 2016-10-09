@@ -2,6 +2,8 @@ package com.xitek.dosnap;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,6 +17,9 @@ import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.RequestListener;
 import com.sina.weibo.sdk.openapi.UsersAPI;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
+import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.sdk.modelmsg.WXWebpageObject;
 import com.xitek.dosnap.util.DataManager;
 import com.xitek.dosnap.util.Event;
 import com.xitek.dosnap.util.HttpUtils;
@@ -59,6 +64,26 @@ public class MainActivity extends Activity {
         } else {
             ssoHandler.authorize(new AuthListener());
         }
+    }
+
+    public void share(View v){
+        WXWebpageObject webpageObject = new WXWebpageObject();
+        webpageObject.webpageUrl = "http://www.dosnap.com/";
+        WXMediaMessage mediaMessage = new WXMediaMessage();
+        mediaMessage.title = "Dosnap - 中文图片社交第一平台,不只是手机摄影";
+        mediaMessage.description = "摄影，手机就够了";
+        Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.drawable.icon_rect);
+        mediaMessage.setThumbImage(thumb);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = String.valueOf(System.currentTimeMillis());
+        req.message = mediaMessage;
+        req.scene = SendMessageToWX.Req.WXSceneSession;
+        LogUtils.e(req+"");
+//        DosnapApp.mWeixinAPI.sendReq(req);
+        if(!thumb.isRecycled()){
+            thumb.recycle();
+        }
+
     }
 
     @Override

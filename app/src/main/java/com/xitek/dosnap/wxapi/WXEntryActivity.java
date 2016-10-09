@@ -34,9 +34,12 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler{
     public void onResp(BaseResp baseResp) {
         switch (baseResp.errCode){
             case BaseResp.ErrCode.ERR_OK:
-                LogUtils.e("登入成功");
-                String code = ((SendAuth.Resp) baseResp).code;
-                DataManager.getInstance().weChatEvent(code);
+                LogUtils.e("登入成功"+baseResp.getType());
+                if(baseResp.getType() == 1){
+                    String code = ((SendAuth.Resp) baseResp).code;
+                    DataManager.getInstance().weChatEvent(code);
+                }
+
                 break;
             case BaseResp.ErrCode.ERR_AUTH_DENIED:
                 break;

@@ -182,7 +182,7 @@ public class DosnapApp extends Application {
 			DosnapApp.mWeixinAPI = WXAPIFactory.createWXAPI(this.getApplicationContext(), DosnapApp.WEIXIN_APP_ID, false);
 		}
 		DosnapApp.mWeixinAPI.registerApp(DosnapApp.WEIXIN_APP_ID);
-		LogUtils.e(DosnapApp.mWeixinAPI+"");
+		LogUtils.e("DosnapApp.mWeixinAPI"+DosnapApp.mWeixinAPI+"");
 		isFirstLaunch();
 //		Fresco.initialize(this, ConfigConstants.getImagePipelineConfig(this));
 //		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
