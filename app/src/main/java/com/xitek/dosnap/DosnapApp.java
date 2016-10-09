@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 
+import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.xitek.dosnap.util.LogUtils;
@@ -116,7 +117,7 @@ public class DosnapApp extends Application {
 	public static IWXAPI mWeixinAPI;
 	public static String WEIXIN_APP_ID = "wxeb794f94487c13df";
 
-//	public static Oauth2AccessToken mAccessToken;
+	public static Oauth2AccessToken mAccessToken;
 
 //	public static Tencent mTencent;
 

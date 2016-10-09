@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.xitek.dosnap"
-        minSdkVersion 15
+        minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -14,10 +14,15 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('xitek.android')
-            storePassword '!QAZ2wsx26535'
-            keyAlias 'xitek'
-            keyPassword '!QAZ2wsx89793'
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
     }
 
@@ -41,5 +46,5 @@ dependencies {
     compile files('libs/libammsdk.jar')
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.google.code.gson:gson:2.4'
-
+    compile project(':weiboSDK')
 }

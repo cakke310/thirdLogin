@@ -12,6 +12,13 @@
         android:onClick="weChatLogin"
         android:text="wechat login" />
 
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="weiBoLogin"
+        android:text="weibo login" />
+
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"

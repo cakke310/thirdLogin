@@ -20,8 +20,6 @@ public class HttpUtils {
     private static String response;
 
     public static String getWeChatToken(String code) {
-        //// TODO: 2016-10-08 中断网络连接一般什么时候要用   刷新token   event线程处理  weixinLogin  face参数是什么
-        LogUtils.e("getWeChatToken==" + code);
         String result = "";
         String uri = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxeb794f94487c13df&secret=00fade49499f4d73fec5b0354590ec84&code="
                 + code + "&grant_type=authorization_code";
